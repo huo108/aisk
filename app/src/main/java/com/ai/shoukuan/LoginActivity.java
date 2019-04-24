@@ -2,37 +2,36 @@ package com.ai.shoukuan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
 
-public class LoginActivity extends Activity implements View.OnClickListener {
+import com.ai.shoukuan.databinding.ActivityLoginBinding;
 
-    ImageView imageView;
-    Button register;
+public class LoginActivity extends Activity{
+
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
-        imageView = findViewById(R.id.imageView);
-        register = findViewById(R.id.register);
-        imageView.setImageResource(R.drawable.good_morning_img);
-        register.setOnClickListener(this);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        binding.setClk(new Click());
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.register:
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
-                break;
+    public class Click {
+        public void clickLogin() {
+            Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+            startActivity(intent);
+        }
+
+        public void clickRegister() {
+            Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+            startActivity(intent);
         }
     }
+
 }
