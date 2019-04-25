@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.ai.shoukuan.bean.BillBean" />
+    </data>
+
+    <RelativeLayout
+        style="@style/bill_layout"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/recharge_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_recharge" />
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/recharge_img"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="@dimen/size_18dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@{item.type}"
+                android:textColor="@color/black"
+                tools:text="@string/arrival_account" />
+
+            <TextView
+                android:textSize="@dimen/size_15dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@{item.source}"
+                android:textColor="@color/black"
+                tools:text="@string/source" />
+
+            <TextView
+                android:textSize="@dimen/size_15dp"
+                android:layout_gravity="left"
+                android:id="@+id/logcat_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@{item.time}"
+                android:textColor="@color/black"
+                tools:text="时间" />
+        </LinearLayout>
+
+
+        <TextView
+            android:textSize="@dimen/size_25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@{item.money}"
+            android:textColor="@color/black"
+            tools:text="@string/money" />
+    </RelativeLayout>
+</layout>

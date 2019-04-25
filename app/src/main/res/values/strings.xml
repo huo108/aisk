@@ -7,4 +7,13 @@
     <string name="regiest">注册</string>
     <string name="forget_password">忘记密码?</string>
     <string name="login_first">请登录</string>
+    <string name="upload_qrcode">您还没上传二维码，点击上传</string>
+    <string name="rechare_title">如何充值？</string>
+    <string name="rechare_explain_detail">1，本站开通支付宝、网银在线、线下转账，基本覆盖国内主流银行；\n\n2，在线充值金币与奖励及时到帐无需等待；\n\n3，线下汇款后立刻通知客服给相应的账户加上相应金币；\n\n4，充值金币 1元 = 1金币（最低充值50元）;\n\n5，其他优惠活动一并获得。</string>
+    <string name="history_bill">历史账单</string>
+    <string name="qrcode">我的二维码</string>
+    <string name="logout">退出账号</string>
+    <string name="arrival_account">收款</string>
+    <string name="source">来源:微信收款</string>
+    <string name="money">+50000</string>
 </resources>

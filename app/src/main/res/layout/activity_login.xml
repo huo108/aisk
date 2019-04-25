@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable name="user" type="com.ai.shoukuan.bean.UserBean"/>
         <variable
             name="clk"
             type="com.ai.shoukuan.LoginActivity.Click" />
@@ -10,16 +11,15 @@
 
     <LinearLayout
         android:gravity="center"
-        android:background="@color/white"
+        android:background="@color/white_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:paddingLeft="32dp"
-        android:paddingRight="32dp">
+        android:paddingRight="32dp"
+        tools:context="com.ai.shoukuan.LoginActivity">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -36,6 +36,7 @@
                 android:hint="@string/user_name"
                 android:maxLines="1"
                 android:textColor="@color/black"
+                android:text="@={user.userName}"
                 android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
@@ -55,6 +56,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@color/black"
+                android:text="@={user.password}"
                 android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
@@ -73,7 +75,7 @@
                 android:layout_marginRight="16dp"
                 android:background="@drawable/buttonshapewhitebg"
                 android:fontFamily="@font/calibri"
-                android:onClick="@{()->clk.clickLogin()}"
+                android:onClick="@{()->clk.clickRegister()}"
                 android:text="@string/regiest"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
@@ -86,7 +88,7 @@
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/buttonshapewhitebg"
                 android:fontFamily="@font/calibri"
-                android:onClick="@{()->clk.clickRegister()}"
+                android:onClick="@{()->clk.clickLogin()}"
                 android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@color/black"

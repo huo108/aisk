@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
+import com.ai.shoukuan.bean.RechargeExplainBean;
 import com.ai.shoukuan.databinding.ActivityMainBinding;
 
 public class MainActivity extends Activity {
@@ -22,6 +23,25 @@ public class MainActivity extends Activity {
         public void clickLogin() {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+        }
+
+        public void qucode() {
+            Intent intent = new Intent(MainActivity.this, QRCodeActivity.class);
+            startActivity(intent);
+        }
+
+        public void recharge() {
+            Intent intent = new Intent(MainActivity.this, RechargeActivity.class);
+            startActivity(intent);
+        }
+
+        public void historyBill() {
+            Intent intent = new Intent(MainActivity.this, BillHistoryActivity.class);
+            startActivity(intent);
+        }
+
+        public void logout() {
+
         }
     }
 }

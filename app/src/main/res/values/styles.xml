@@ -74,6 +74,10 @@
         <item name="android:background">@drawable/top_layout_selector</item>
     </style>
 
+    <style name="bill_layout" parent="base_layout">
+        <item name="android:background">@drawable/bill_layout_selector</item>
+    </style>
+
 
     <!--无圆角样式  -->
     <style name="mid_layout" parent="base_layout">

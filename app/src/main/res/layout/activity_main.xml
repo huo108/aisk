@@ -18,73 +18,68 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:background="@color/blue"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
             android:onClick="@{()->clk.clickLogin()}"
-            android:background="@color/blue">
-
-            <com.makeramen.roundedimageview.RoundedImageView
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                app:civ_border_width="2dp"
                 android:src="@drawable/no_login"
-                app:riv_border_color="#333333"
-                android:layout_alignParentLeft="true"
-                app:riv_border_width="2dp"
-                app:riv_corner_radius="250dp"
-                app:riv_mutate_background="true"
-                app:riv_oval="false"
-                app:riv_tile_mode="repeat" />
+                app:civ_border_color="#60000000"/>
 
             <TextView
-                android:paddingLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:textSize="15dp"
                 android:text="@string/login_first" />
         </LinearLayout>
 
 
         <LinearLayout style="@style/wrap_layout">
-            <!-- 上圆角-->
-            <LinearLayout style="@style/top_layout">
-
-                <TextView
-                    style="@style/usertext"
-                    android:text="我的资料" />
-
-                <ImageView style="@style/img_arrow" />
-            </LinearLayout>
-
-            <!-- 分割线 -->
-            <View style="@style/bg_line" />
             <!-- 无圆角-->
-            <LinearLayout style="@style/mid_layout">
+            <LinearLayout
+                style="@style/top_layout"
+                android:onClick="@{()->clk.qucode()}">
 
                 <TextView
                     style="@style/usertext"
-                    android:text="我的二维码" />
+                    android:text="@string/qrcode" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/ic_qrcode" />
 
                 <ImageView style="@style/img_arrow" />
             </LinearLayout>
             <!-- 分割线 -->
             <View style="@style/bg_line" />
             <!-- 无圆角-->
-            <LinearLayout style="@style/mid_layout">
+            <LinearLayout style="@style/mid_layout"
+                android:onClick="@{()->clk.historyBill()}">
 
                 <TextView
                     style="@style/usertext"
-                    android:text="历史账单" />
+                    android:text="@string/history_bill" />
 
                 <ImageView style="@style/img_arrow" />
             </LinearLayout>
 
             <View style="@style/bg_line" />
             <!-- 下圆角-->
-            <LinearLayout style="@style/bottom_layout">
+            <LinearLayout style="@style/bottom_layout"
+                android:onClick="@{()->clk.recharge()}">
 
                 <TextView
                     style="@style/usertext"
-                    android:text="充值说明" />
+                    android:text="@string/rechare_title" />
 
                 <ImageView style="@style/img_arrow" />
             </LinearLayout>
@@ -95,11 +90,12 @@
         <!-- 全圆角-->
         <LinearLayout style="@style/wrap_layout">
 
-            <LinearLayout style="@style/single_layout">
+            <LinearLayout style="@style/single_layout"
+                android:onClick="@{()->clk.logout()}">
 
                 <TextView
                     style="@style/usertext"
-                    android:text="退出账号" />
+                    android:text="@string/logout" />
 
                 <ImageView style="@style/img_arrow" />
             </LinearLayout>
