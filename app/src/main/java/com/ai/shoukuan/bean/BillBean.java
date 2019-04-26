@@ -8,9 +8,6 @@ import com.ai.shoukuan.adapter.BindingAdapterItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by wumh on 2018/12/27.
- */
 public class BillBean extends BaseObservable implements BindingAdapterItem {
     private String type;
     private String source;

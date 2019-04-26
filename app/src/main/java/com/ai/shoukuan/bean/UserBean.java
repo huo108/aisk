@@ -1,8 +1,5 @@
 package com.ai.shoukuan.bean;
 
-/**
- * Created by wumh on 2019/4/25
- **/
 public class UserBean {
     private String userName;
     private String password;

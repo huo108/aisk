@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clk"
+            type="com.ai.shoukuan.ui.user.UserActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/blue"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:civ_border_width="2dp"
+                android:src="@drawable/no_login"
+                app:civ_border_color="#60000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:textSize="15dp"
+                android:text="@string/login_first" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/wrap_layout">
+            <!-- 无圆角-->
+            <LinearLayout
+                style="@style/top_layout">
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="@string/qrcode" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/ic_qrcode" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+            <!-- 分割线 -->
+            <View style="@style/bg_line" />
+            <!-- 无圆角-->
+            <LinearLayout style="@style/mid_layout">
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="@string/history_bill" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+
+            <View style="@style/bg_line" />
+            <!-- 下圆角-->
+            <LinearLayout style="@style/bottom_layout">
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="@string/rechare_title" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- 全圆角-->
+        <LinearLayout style="@style/wrap_layout">
+
+            <LinearLayout style="@style/single_layout">
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="@string/logout" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

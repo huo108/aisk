@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        tools:context=".RechargeActivity">
+        tools:context=".ui.recharge.RechargeActivity">
 
         <TextView
             android:textStyle="bold"

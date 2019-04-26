@@ -4,7 +4,7 @@
         <variable name="user" type="com.ai.shoukuan.bean.UserBean"/>
         <variable
             name="clk"
-            type="com.ai.shoukuan.RegisterActivity.Click" />
+            type="com.ai.shoukuan.ui.register.RegisterActivity" />
     </data>
 
     <LinearLayout
@@ -29,7 +29,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_yonghu"
+                android:drawableRight="@drawable/ic_username"
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/calibri"
                 android:hint="@string/user_name"
@@ -93,7 +93,6 @@
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/buttonshapewhitebg"
                 android:fontFamily="@font/calibri"
-                android:onClick="@{()->clk.clickRegister()}"
                 android:text="@string/regiest"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
