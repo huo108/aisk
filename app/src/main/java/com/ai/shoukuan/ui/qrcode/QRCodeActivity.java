@@ -12,11 +12,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.view.View;
 
 import com.ai.shoukuan.R;
 import com.ai.shoukuan.databinding.ActivityQrcodeBinding;
 
-public class QRCodeActivity extends Activity {
+public class QRCodeActivity extends Activity implements View.OnClickListener {
 
     private ActivityQrcodeBinding binding;
 
@@ -24,11 +25,15 @@ public class QRCodeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_qrcode);
-//        binding.setClk(new Click());
+        binding.qrcodeImg.setOnClickListener(this);
     }
 
-    public class Click {
-        public void chooseAlbums() {
+    @Override
+    public void onClick(View v) {
+        chooseAlbums();
+    }
+
+    public void chooseAlbums() {
             if (ActivityCompat.checkSelfPermission(QRCodeActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(QRCodeActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
             }
@@ -36,7 +41,6 @@ public class QRCodeActivity extends Activity {
             intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");//相片类型
             startActivityForResult(intent, 1);
         }
-    }
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data){

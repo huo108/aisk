@@ -1,51 +1,39 @@
 package com.ai.shoukuan.ui.user;
 
 import android.app.Activity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
+import com.ai.shoukuan.BR;
 import com.ai.shoukuan.R;
+import com.ai.shoukuan.factory.AppViewModelFactory;
 import com.ai.shoukuan.ui.recharge.RechargeActivity;
 import com.ai.shoukuan.databinding.ActivityUserBinding;
 import com.ai.shoukuan.ui.history.BillHistoryActivity;
 import com.ai.shoukuan.ui.login.LoginActivity;
 import com.ai.shoukuan.ui.qrcode.QRCodeActivity;
+import com.mvvm.library.base.BaseActivity;
 
-public class UserActivity extends Activity {
+public class UserActivity extends BaseActivity<ActivityUserBinding, UserViewModel> {
 
-    private ActivityUserBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_user);
-//        binding.setClk(new Click());
+    public int initContentView(Bundle savedInstanceState) {
+        return R.layout.activity_user;
     }
 
-    public class Click {
-        public void clickLogin() {
-            Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
-
-        public void qucode() {
-            Intent intent = new Intent(UserActivity.this, QRCodeActivity.class);
-            startActivity(intent);
-        }
-
-        public void recharge() {
-            Intent intent = new Intent(UserActivity.this, RechargeActivity.class);
-            startActivity(intent);
-        }
-
-        public void historyBill() {
-            Intent intent = new Intent(UserActivity.this, BillHistoryActivity.class);
-            startActivity(intent);
-        }
-
-        public void logout() {
-
-        }
+    @Override
+    public int initVariableId() {
+        return BR.viewModel;
     }
+
+    @Override
+    public UserViewModel initViewModel() {
+        //使用自定义的ViewModelFactory来创建ViewModel，如果不重写该方法，则默认会调用LoginViewModel(@NonNull Application application)构造方法
+        AppViewModelFactory factory = AppViewModelFactory.getInstance(getApplication());
+        return ViewModelProviders.of(this, factory).get(UserViewModel.class);
+    }
+
 }

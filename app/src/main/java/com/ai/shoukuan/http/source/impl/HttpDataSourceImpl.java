@@ -35,6 +35,11 @@ public class HttpDataSourceImpl implements HttpDataSource {
         return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
     }
 
+    @Override
+    public Observable<Object> register() {
+        return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
+    }
+
 //    @Override
 //    public Observable<DemoEntity> loadMore() {
 //        return Observable.create(new ObservableOnSubscribe<DemoEntity>() {

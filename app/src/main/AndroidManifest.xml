@@ -24,7 +24,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Light.NoTitleBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".ui.history.BillHistoryActivity"></activity>
         <activity android:name=".ui.recharge.RechargeActivity" />
         <activity android:name=".ui.qrcode.QRCodeActivity" />

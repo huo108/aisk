@@ -1,104 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <variable name="user" type="com.ai.shoukuan.bean.UserBean"/>
         <variable
-            name="clk"
-            type="com.ai.shoukuan.ui.register.RegisterActivity" />
+            name="viewModel"
+            type="com.ai.shoukuan.ui.register.RegisterViewModel" />
     </data>
 
-    <LinearLayout
-        android:gravity="center"
-        android:background="@color/white_1"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:paddingLeft="32dp"
-        android:paddingRight="32dp">
+        android:background="@color/white_1">
 
-        <android.support.design.widget.TextInputLayout
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
-            android:theme="@style/EditScreenTextInputLayoutStyle">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_username"
-                android:drawablePadding="16dp"
-                android:fontFamily="@font/calibri"
-                android:hint="@string/user_name"
-                android:maxLines="1"
-                android:text="@={user.userName}"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
-            android:theme="@style/EditScreenTextInputLayoutStyle">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_lock_white_24dp"
-                android:drawablePadding="16dp"
-                android:fontFamily="@font/calibri"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:text="@={user.password}"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/black"
-            android:theme="@style/EditScreenTextInputLayoutStyle">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_lock_white_24dp"
-                android:drawablePadding="16dp"
-                android:fontFamily="@font/calibri"
-                android:hint="@string/comfirm_password"
-                android:text="@={user.ensurePassword}"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/login_back"
+            android:scaleType="fitXY" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <Button
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/buttonshapewhitebg"
-                android:fontFamily="@font/calibri"
-                android:text="@string/regiest"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:src="@drawable/ic_launcher" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:background="@drawable/user_edit"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="16sp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_username" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/textColorHint" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/user_name"
+                    android:text="@={viewModel.userName}"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColorHint"
+                    android:textSize="16sp"
+                    binding:onFocusChangeCommand="@{viewModel.onFocusChangeCommand}" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:src="@drawable/clean_edit"
+                    android:visibility="@{viewModel.clearBtnVisibility}"
+                    binding:onClickCommand="@{viewModel.clearUserNameOnClickCommand}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/user_edit"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="16sp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_lock_white_24dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/textColorHint" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.password}"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColorHint"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_swich_passwrod"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:src="@drawable/show_psw_press"
+                    binding:onClickCommand="@{viewModel.passwordShowSwitchOnClickCommand}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/user_edit"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="16sp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_lock_white_24dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/textColorHint" />
+
+                <EditText
+                    android:id="@+id/et_comfirm_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/comfirm_password"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.comfirmPassword}"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColorHint"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_swich_comfirm_passwrod"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:src="@drawable/show_psw_press"
+                    binding:onClickCommand="@{viewModel.comfirmPasswordShowSwitchOnClickCommand}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_login"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:text="@string/register"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    binding:onClickCommand="@{viewModel.registerOnClickCommand}" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

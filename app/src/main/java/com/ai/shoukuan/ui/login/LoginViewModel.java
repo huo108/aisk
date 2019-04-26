@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.ai.shoukuan.ui.register.RegisterActivity;
 import com.ai.shoukuan.ui.user.UserActivity;
 import com.ai.shoukuan.bean.AiskRepository;
 
@@ -76,6 +77,14 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
         }
     });
 
+    //登录按钮的点击事件
+    public BindingCommand registerOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            startActivity(RegisterActivity.class);
+        }
+    });
+
     /**
      * 网络模拟一个登陆操作
      **/
@@ -105,7 +114,7 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
                         //保存账号密码
                         model.saveUserName(userName.get());
                         model.savePassword(password.get());
-                        //进入DemoActivity页面
+                        //进入UserActivity页面
                         startActivity(UserActivity.class);
                         //关闭页面
                         finish();

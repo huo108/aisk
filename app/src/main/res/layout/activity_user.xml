@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="clk"
-            type="com.ai.shoukuan.ui.user.UserActivity" />
+            name="viewModel"
+            type="com.ai.shoukuan.ui.user.UserViewModel" />
     </data>
 
     <LinearLayout
@@ -40,9 +41,12 @@
         </LinearLayout>
 
 
-        <LinearLayout style="@style/wrap_layout">
+        <LinearLayout style="@style/wrap_layout"
+
+            >
             <!-- 无圆角-->
             <LinearLayout
+                binding:onClickCommand="@{viewModel.qrCodeOnClickCommand}"
                 style="@style/top_layout">
 
                 <TextView
@@ -60,7 +64,8 @@
             <!-- 分割线 -->
             <View style="@style/bg_line" />
             <!-- 无圆角-->
-            <LinearLayout style="@style/mid_layout">
+            <LinearLayout style="@style/mid_layout"
+                binding:onClickCommand="@{viewModel.historyOnClickCommand}">
 
                 <TextView
                     style="@style/usertext"
@@ -71,7 +76,8 @@
 
             <View style="@style/bg_line" />
             <!-- 下圆角-->
-            <LinearLayout style="@style/bottom_layout">
+            <LinearLayout style="@style/bottom_layout"
+                binding:onClickCommand="@{viewModel.rechargeClickCommand}">
 
                 <TextView
                     style="@style/usertext"
@@ -86,7 +92,8 @@
         <!-- 全圆角-->
         <LinearLayout style="@style/wrap_layout">
 
-            <LinearLayout style="@style/single_layout">
+            <LinearLayout style="@style/single_layout"
+                binding:onClickCommand="@{viewModel.logoutOnClickCommand}">
 
                 <TextView
                     style="@style/usertext"

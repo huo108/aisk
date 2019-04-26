@@ -35,7 +35,6 @@ public class BillHistoryActivity extends Activity {
         }
         BillAdapter adapter = new BillAdapter();
         adapter.setItems(items);
-        //这也是一个坑，经常忘了加LayoutManger导致东西Item无法显示，RecyclerView把测量，布局的工作甩给了LayoutManager
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         binding.billRecycler.setLayoutManager(manager);
         binding.billRecycler.setAdapter(adapter);

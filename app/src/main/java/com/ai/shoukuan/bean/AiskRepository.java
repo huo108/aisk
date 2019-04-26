@@ -46,6 +46,10 @@ public class AiskRepository extends BaseModel implements HttpDataSource, LocalDa
         return mHttpDataSource.login();
     }
 
+    @Override
+    public Observable<Object> register() {
+        return mHttpDataSource.register();
+    }
 
     @Override
     public void saveUserName(String userName) {
