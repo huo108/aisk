@@ -16,6 +16,10 @@ public interface ApiService {
     @GET("AppAuthentication/login.action")
     Observable<LoginBean> login(@Field("username") String username, @Field("password") String password, @Field("verifyCode") String verifyCode);
 
+    @GET("AppAuthentication/verifyCode.action")
+    Observable<Object> verifyCode();
+
+
     @GET("action/apiv2/banner?catalog=1")
     Observable<BaseResponse<DemoEntity>> demoGet();
 

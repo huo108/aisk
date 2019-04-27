@@ -44,8 +44,12 @@ public class HttpDataSourceImpl implements HttpDataSource {
     }
 
     @Override
-    public Observable<Object> register() {
+    public Observable<Object> verifyCode() {
+        return apiService.verifyCode();
+    }
 
+    @Override
+    public Observable<Object> register() {
         return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
     }
 

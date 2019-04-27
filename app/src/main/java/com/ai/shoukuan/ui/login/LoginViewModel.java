@@ -41,6 +41,29 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
         public SingleLiveEvent<Boolean> pSwitchEvent = new SingleLiveEvent<>();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        verifyCode();
+    }
+
+    private void verifyCode() {
+        addSubscribe(model.verifyCode()
+                .compose(RxUtils.schedulersTransformer()) //线程调度
+                .doOnSubscribe(new Consumer<Disposable>() {
+                    @Override
+                    public void accept(Disposable disposable) throws Exception {
+                        showDialog();
+                    }
+                })
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        ToastUtils.showLong("userName:" + userName.get() + " passWord:" + password.get());
+                    }
+                }));
+    }
+
     public LoginViewModel(@NonNull Application application, AiskRepository repository) {
         super(application, repository);
         //从本地取得数据绑定到View层

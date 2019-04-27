@@ -9,6 +9,7 @@ import io.reactivex.Observable;
 public interface HttpDataSource {
     //模拟登录
     Observable<LoginBean> login(String userName, String password, String verifyCode);
+    Observable<Object> verifyCode();
     Observable<Object> register();
     Observable<BaseResponse<DemoEntity>> demoGet();
     Observable<BaseResponse<DemoEntity>> demoPost(String catalog);
