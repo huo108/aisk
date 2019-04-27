@@ -60,7 +60,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
         }
 
         public void bindData(BindingAdapterItem item) {
-            binding.setVariable(BR.item,item);
+//            binding.setVariable(BR.item,item);
         }
 
     }

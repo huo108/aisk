@@ -8,6 +8,7 @@ import com.ai.shoukuan.http.source.LocalDataSource;
 
 import io.reactivex.Observable;
 import com.mvvm.library.base.BaseModel;
+import com.mvvm.library.http.BaseResponse;
 
 /**
  * MVVM的Model层，统一模块的数据仓库，包含网络数据和本地数据（一个应用可以有多个Repositor）
@@ -42,8 +43,23 @@ public class AiskRepository extends BaseModel implements HttpDataSource, LocalDa
     }
 
     @Override
-    public Observable<Object> login() {
-        return mHttpDataSource.login();
+    public Observable<DemoEntity> loadMore() {
+        return mHttpDataSource.loadMore();
+    }
+
+    @Override
+    public Observable<BaseResponse<DemoEntity>> demoGet() {
+        return mHttpDataSource.demoGet();
+    }
+
+    @Override
+    public Observable<BaseResponse<DemoEntity>> demoPost(String catalog) {
+        return mHttpDataSource.demoPost(catalog);
+    }
+
+    @Override
+    public Observable<LoginBean> login(String userName,String password,String verifyCode) {
+        return mHttpDataSource.login(userName,password,verifyCode);
     }
 
     @Override

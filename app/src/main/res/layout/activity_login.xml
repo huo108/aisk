@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.ai.shoukuan.ui.login.LoginViewModel" />
@@ -29,9 +30,9 @@
             android:padding="20dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher" />
+                app:imageUrl="@{@string/url}"
+                android:layout_width="50dp"
+                android:layout_height="30dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,6 +118,12 @@
                     android:src="@drawable/show_psw_press"
                     binding:onClickCommand="@{viewModel.passwordShowSwitchOnClickCommand}" />
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageUrl="@{@string/url}"
+                android:scaleType="fitXY" />
 
             <LinearLayout
                 android:layout_width="match_parent"

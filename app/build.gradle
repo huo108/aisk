@@ -25,4 +25,5 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':mvvmlibrary')
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
 }

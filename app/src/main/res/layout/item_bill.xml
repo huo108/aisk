@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.ai.shoukuan.ui.history.NetWorkItemViewModel" />
         <variable
-            name="item"
-            type="com.ai.shoukuan.bean.BillBean" />
+            name="viewModel"
+            type="NetWorkItemViewModel" />
     </data>
 
     <RelativeLayout
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="@{item.type}"
+                android:text="@{viewModel.entity.name}"
                 android:textColor="@color/black"
                 tools:text="@string/arrival_account" />
 
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="@{item.source}"
+                android:text="@{viewModel.entity.name}"
                 android:textColor="@color/black"
                 tools:text="@string/source" />
 
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="@{item.time}"
+                android:text="@{viewModel.entity.name}"
                 android:textColor="@color/black"
                 tools:text="时间" />
         </LinearLayout>
@@ -77,7 +77,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="@{item.money}"
+            android:text="@{String.valueOf(viewModel.entity.id)}"
             android:textColor="@color/black"
             tools:text="@string/money" />
     </RelativeLayout>

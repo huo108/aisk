@@ -9,6 +9,7 @@ import android.support.annotation.VisibleForTesting;
 
 import com.ai.shoukuan.injection.Injection;
 import com.ai.shoukuan.bean.AiskRepository;
+import com.ai.shoukuan.ui.history.NetWorkViewModel;
 import com.ai.shoukuan.ui.login.LoginViewModel;
 import com.ai.shoukuan.ui.register.RegisterViewModel;
 import com.ai.shoukuan.ui.user.UserViewModel;
@@ -50,8 +51,11 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new LoginViewModel(mApplication, mRepository);
         } else if (modelClass.isAssignableFrom(RegisterViewModel.class)) {
             return (T) new RegisterViewModel(mApplication, mRepository);
-        } else if (modelClass.isAssignableFrom(UserViewModel.class)) {
+        }
+        else if (modelClass.isAssignableFrom(UserViewModel.class)) {
             return (T) new UserViewModel(mApplication, mRepository);
+        }  else if (modelClass.isAssignableFrom(NetWorkViewModel.class)) {
+            return (T) new NetWorkViewModel(mApplication, mRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

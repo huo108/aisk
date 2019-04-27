@@ -1,22 +1,16 @@
 package com.ai.shoukuan.ui.register;
 
-import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.widget.Toast;
 
 import com.ai.shoukuan.BR;
 import com.ai.shoukuan.R;
-import com.ai.shoukuan.bean.UserBean;
-import com.ai.shoukuan.databinding.ActivityLoginBinding;
 import com.ai.shoukuan.databinding.ActivityRegisterBinding;
 import com.ai.shoukuan.factory.AppViewModelFactory;
-import com.ai.shoukuan.ui.login.LoginViewModel;
 import com.mvvm.library.base.BaseActivity;
 
 public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, RegisterViewModel> {

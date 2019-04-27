@@ -7,12 +7,15 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.ai.shoukuan.bean.LoginBean;
 import com.ai.shoukuan.ui.register.RegisterActivity;
 import com.ai.shoukuan.ui.user.UserActivity;
 import com.ai.shoukuan.bean.AiskRepository;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+
+import com.ai.shoukuan.utils.MD5Util;
 import com.mvvm.library.base.BaseViewModel;
 import com.mvvm.library.binding.command.BindingAction;
 import com.mvvm.library.binding.command.BindingCommand;
@@ -26,6 +29,8 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
     public ObservableField<String> userName = new ObservableField<>("");
     //密码的绑定
     public ObservableField<String> password = new ObservableField<>("");
+    //验证码
+    public ObservableField<String> verifyCode = new ObservableField<>("");
     //用户名清除按钮的显示隐藏绑定
     public ObservableInt clearBtnVisibility = new ObservableInt();
     //封装一个界面发生改变的观察者
@@ -97,8 +102,12 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
             ToastUtils.showShort("请输入密码！");
             return;
         }
+        if (TextUtils.isEmpty(verifyCode.get())) {
+            ToastUtils.showShort("请输入验证码！");
+            return;
+        }
         //RaJava模拟登录
-        addSubscribe(model.login()
+        addSubscribe(model.login(userName.get(), MD5Util.MD5(password.get()),verifyCode.get())
                 .compose(RxUtils.schedulersTransformer()) //线程调度
                 .doOnSubscribe(new Consumer<Disposable>() {
                     @Override
@@ -106,9 +115,9 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
                         showDialog();
                     }
                 })
-                .subscribe(new Consumer<Object>() {
+                .subscribe(new Consumer<LoginBean>() {
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public void accept(LoginBean o) throws Exception {
                         ToastUtils.showLong("userName:" + userName.get() + " passWord:" + password.get());
                         dismissDialog();
                         //保存账号密码

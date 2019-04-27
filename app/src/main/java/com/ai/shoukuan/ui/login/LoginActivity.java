@@ -12,6 +12,7 @@ import com.ai.shoukuan.BR;
 import com.ai.shoukuan.R;
 import com.ai.shoukuan.databinding.ActivityLoginBinding;
 
+import com.bumptech.glide.Glide;
 import com.mvvm.library.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {

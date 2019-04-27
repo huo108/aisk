@@ -16,4 +16,5 @@
     <string name="arrival_account">收款</string>
     <string name="source">来源:微信收款</string>
     <string name="money">+50000</string>
+    <string name="url">https://ailianblog.oss-cn-shenzhen.aliyuncs.com/flutter/blog_flutter_02.png</string>
 </resources>
