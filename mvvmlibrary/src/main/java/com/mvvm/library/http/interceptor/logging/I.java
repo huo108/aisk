@@ -15,7 +15,7 @@ class I {
     }
 
     static void log(int type, String tag, String msg) {
-        java.util.logging.Logger logger = java.util.logging.Logger.getLogger(tag);
+        java.util.logging.Logger logger = java.util.logging.Logger.getLogger("AISK_"+tag);
         switch (type) {
             case Platform.INFO:
                 logger.log(Level.INFO, msg);

@@ -2,6 +2,7 @@ package com.ai.shoukuan.ui.login;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.method.HideReturnsTransformationMethod;
@@ -12,8 +13,22 @@ import com.ai.shoukuan.BR;
 import com.ai.shoukuan.R;
 import com.ai.shoukuan.databinding.ActivityLoginBinding;
 
+import com.ai.shoukuan.http.RetrofitClient;
+import com.ai.shoukuan.utils.LogAppUtil;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.mvvm.library.base.BaseActivity;
+
+import java.util.List;
+
+import okhttp3.Cookie;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 

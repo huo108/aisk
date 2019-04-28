@@ -33,12 +33,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * RetrofitClient封装单例类, 实现网络请求
  */
 public class RetrofitClient {
+
+    public static CookieJarImpl cookieJar;
     //超时时间
     private static final int DEFAULT_TIMEOUT = 20;
     //缓存时间
     private static final int CACHE_TIMEOUT = 10 * 1024 * 1024;
     //服务端根路径
-    public static String baseUrl = "http://192.168.0.127:18080";
+    public static String baseUrl = "http://192.168.0.159:18080";
 //    public static String baseUrl = "https://www.oschina.net/";
 
     private static Context mContext = Utils.getContext();
@@ -78,9 +80,10 @@ public class RetrofitClient {
         } catch (Exception e) {
             KLog.e("Could not create http cache", e);
         }
+        cookieJar = new CookieJarImpl(new PersistentCookieStore(mContext));
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
         okHttpClient = new OkHttpClient.Builder()
-                .cookieJar(new CookieJarImpl(new PersistentCookieStore(mContext)))
+                .cookieJar(cookieJar)
 //                .cache(cache)
                 .addInterceptor(new BaseInterceptor(headers))
                 .addInterceptor(new CacheInterceptor(mContext))

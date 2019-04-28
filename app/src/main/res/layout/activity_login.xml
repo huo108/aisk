@@ -30,7 +30,7 @@
             android:padding="20dp">
 
             <ImageView
-                app:imageUrl="@{@string/url}"
+                android:background="@drawable/ic_launcher"
                 android:layout_width="50dp"
                 android:layout_height="30dp" />
 
@@ -155,10 +155,12 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/verifyCode_img"
+                android:layout_marginTop="5dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
                 app:imageUrl="@{@string/url}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:placeHolder="@{@drawable/ic_qrcode}"
+                app:placeHolder="@{@drawable/loading_coffee}"
                 app:error="@{@drawable/ic_qrcode}"
                 android:scaleType="fitXY" />
 

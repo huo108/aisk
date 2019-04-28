@@ -44,10 +44,11 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
     @Override
     public void onStart() {
         super.onStart();
-        verifyCode();
+//        verifyCode();
     }
 
     private void verifyCode() {
+
         addSubscribe(model.verifyCode()
                 .compose(RxUtils.schedulersTransformer()) //线程调度
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -130,7 +131,7 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
             return;
         }
         //RaJava模拟登录
-        addSubscribe(model.login(userName.get(), MD5Util.MD5(password.get()),verifyCode.get())
+        addSubscribe(model.login(userName.get(), MD5Util.MD5(password.get()).toUpperCase(),verifyCode.get())
                 .compose(RxUtils.schedulersTransformer()) //线程调度
                 .doOnSubscribe(new Consumer<Disposable>() {
                     @Override
