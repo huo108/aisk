@@ -68,8 +68,8 @@ public class AiskRepository extends BaseModel implements HttpDataSource, LocalDa
     }
 
     @Override
-    public Observable<Object> register() {
-        return mHttpDataSource.register();
+    public Observable<Object> register(String userName,String password) {
+        return mHttpDataSource.register(userName,password);
     }
 
     @Override

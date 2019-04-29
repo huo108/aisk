@@ -10,7 +10,7 @@ public interface HttpDataSource {
     //模拟登录
     Observable<LoginBean> login(String userName, String password, String verifyCode);
     Observable<Object> verifyCode();
-    Observable<Object> register();
+    Observable<Object> register(String userName, String password);
     Observable<BaseResponse<DemoEntity>> demoGet();
     Observable<BaseResponse<DemoEntity>> demoPost(String catalog);
     //模拟上拉加载

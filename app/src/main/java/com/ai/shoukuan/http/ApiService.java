@@ -17,6 +17,9 @@ public interface ApiService {
     @GET("AppAuthentication/login.action")
     Observable<LoginBean> login(@Query("username") String username, @Query("password") String password, @Query("verifyCode") String verifyCode);
 
+    @GET("MemberAction/register.action")
+    Observable<Object> register(@Query("username") String username, @Query("password") String password);
+
     @GET("AppAuthentication/verifyCode.action")
     Observable<Object> verifyCode();
 

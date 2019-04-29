@@ -10,6 +10,7 @@ import android.view.View;
 import com.ai.shoukuan.bean.AiskRepository;
 import com.ai.shoukuan.ui.login.LoginViewModel;
 import com.ai.shoukuan.ui.user.UserActivity;
+import com.ai.shoukuan.utils.MD5Util;
 import com.mvvm.library.base.BaseViewModel;
 import com.mvvm.library.binding.command.BindingAction;
 import com.mvvm.library.binding.command.BindingCommand;
@@ -115,7 +116,7 @@ public class RegisterViewModel extends BaseViewModel<AiskRepository> {
         }
 
         //RaJava模拟登录
-        addSubscribe(model.register()
+        addSubscribe(model.register(userName.get(), MD5Util.MD5(password.get()))
                 .compose(RxUtils.schedulersTransformer()) //线程调度
                 .doOnSubscribe(new Consumer<Disposable>() {
                     @Override
