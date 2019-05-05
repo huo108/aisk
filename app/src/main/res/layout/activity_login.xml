@@ -29,11 +29,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <ImageView
-                android:background="@drawable/ic_launcher"
-                android:layout_width="50dp"
-                android:layout_height="30dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,7 +154,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                app:imageUrl="@{@string/url}"
+                app:imageUrl="@{viewModel.imgUrl}"
                 app:placeHolder="@{@drawable/loading_coffee}"
                 app:error="@{@drawable/ic_qrcode}"
                 android:scaleType="fitXY" />

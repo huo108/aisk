@@ -2,6 +2,7 @@ package com.ai.shoukuan.http.source.impl;
 
 import com.ai.shoukuan.bean.DemoEntity;
 import com.ai.shoukuan.bean.LoginBean;
+import com.ai.shoukuan.bean.UploadResult;
 import com.ai.shoukuan.http.source.HttpDataSource;
 import com.ai.shoukuan.http.ApiService;
 import com.mvvm.library.http.BaseResponse;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import okhttp3.MultipartBody;
 
 public class HttpDataSourceImpl implements HttpDataSource {
     private ApiService apiService;
@@ -49,9 +51,14 @@ public class HttpDataSourceImpl implements HttpDataSource {
     }
 
     @Override
-    public Observable<Object> register(String userName, String password) {
+    public Observable<LoginBean> register(String userName, String password) {
         return apiService.register(userName,password);
-//        return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
+    }
+
+    @Override
+    public Observable<UploadResult> upload(MultipartBody.Part file) {
+//        return apiService.upload(file);
+        return null;
     }
 
     @Override

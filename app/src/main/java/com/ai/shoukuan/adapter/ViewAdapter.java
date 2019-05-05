@@ -1,4 +1,4 @@
-package com.ai.shoukuan.twinklingrefreshlayout;
+package com.ai.shoukuan.adapter;
 
 import android.databinding.BindingAdapter;
 

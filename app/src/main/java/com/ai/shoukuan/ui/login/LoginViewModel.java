@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.ai.shoukuan.bean.LoginBean;
+import com.ai.shoukuan.http.RetrofitClient;
 import com.ai.shoukuan.ui.register.RegisterActivity;
 import com.ai.shoukuan.ui.user.UserActivity;
 import com.ai.shoukuan.bean.AiskRepository;
@@ -25,6 +26,8 @@ import com.mvvm.library.utils.RxUtils;
 import com.mvvm.library.utils.ToastUtils;
 
 public class LoginViewModel extends BaseViewModel<AiskRepository> {
+    public String imgUrl = RetrofitClient.baseUrl + "/AppAuthentication/verifyCode.action";
+
     //用户名的绑定
     public ObservableField<String> userName = new ObservableField<>("");
     //密码的绑定
@@ -131,7 +134,7 @@ public class LoginViewModel extends BaseViewModel<AiskRepository> {
             return;
         }
         //RaJava模拟登录
-        addSubscribe(model.login(userName.get(), MD5Util.MD5(password.get()).toUpperCase(),verifyCode.get())
+        addSubscribe(model.login(userName.get(), MD5Util.MD5(password.get()).toUpperCase(), verifyCode.get())
                 .compose(RxUtils.schedulersTransformer()) //线程调度
                 .doOnSubscribe(new Consumer<Disposable>() {
                     @Override

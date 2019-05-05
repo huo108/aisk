@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -18,7 +19,7 @@ import com.mvvm.library.utils.ToastUtils;
 
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
-public class BillHistoryActivity extends BaseActivity<ActivityBillHistoryBinding, NetWorkViewModel> {
+public class BillHistoryActivity extends BaseActivity<ActivityBillHistoryBinding, NetWorkViewModel> implements View.OnClickListener {
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class BillHistoryActivity extends BaseActivity<ActivityBillHistoryBinding
     public void initData() {
         //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象。
         // Adapter属于View层的东西, 不建议定义到ViewModel中绑定，以免内存泄漏
+        binding.include.back.setOnClickListener(this);
+        binding.include.text.setText(getResources().getText(R.string.history_bill));
         binding.setAdapter(new BindingRecyclerViewAdapter());
         //请求网络数据
         viewModel.requestNetWork();
@@ -84,6 +87,15 @@ public class BillHistoryActivity extends BaseActivity<ActivityBillHistoryBinding
                 }).show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                finish();
+                break;
+        }
     }
 
 //    private ActivityBillHistoryBinding binding;

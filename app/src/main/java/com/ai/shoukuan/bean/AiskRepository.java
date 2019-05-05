@@ -7,6 +7,8 @@ import com.ai.shoukuan.http.source.HttpDataSource;
 import com.ai.shoukuan.http.source.LocalDataSource;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+
 import com.mvvm.library.base.BaseModel;
 import com.mvvm.library.http.BaseResponse;
 
@@ -68,8 +70,13 @@ public class AiskRepository extends BaseModel implements HttpDataSource, LocalDa
     }
 
     @Override
-    public Observable<Object> register(String userName,String password) {
+    public Observable<LoginBean> register(String userName,String password) {
         return mHttpDataSource.register(userName,password);
+    }
+
+    @Override
+    public Observable<UploadResult> upload(MultipartBody.Part file) {
+        return mHttpDataSource.upload(file);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.ai.shoukuan.twinklingrefreshlayout;
+package com.ai.shoukuan.adapter;
 
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import com.ai.shoukuan.http.RetrofitClient;
 import com.ai.shoukuan.utils.LogAppUtil;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
@@ -17,7 +16,6 @@ import com.bumptech.glide.load.model.LazyHeaders;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
-import com.lcodecore.tkrefreshlayout.utils.LogUtil;
 
 import java.util.List;
 
